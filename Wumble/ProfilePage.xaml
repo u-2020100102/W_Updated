@@ -11,7 +11,7 @@
         <Label x:Name="nameSurname"/>
         <Label x:Name="identityNumber"/>
         <Label x:Name="role"/>
-        <Button Text="Add Child" x:Name="addChild" Clicked="addChild_clicked"/>
+        <Button Text="Add Child" x:Name="addChild" Clicked="addChild_clicked" IsVisible="False"/>
         <Grid x:Name="ChildrenGrid">
 
         </Grid>
