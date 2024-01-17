@@ -32,5 +32,5 @@
 
 ![image](https://github.com/u-2020100102/W_Updated/assets/150604726/e8b14e4b-2f19-454e-9649-1ba2fbec7831)
 
-#### Note that location is not unfortunately constant and the implementation of this feature is not done yet!
+#### Note that location is unfortunately constant and the implementation of this feature is not done yet!
 
