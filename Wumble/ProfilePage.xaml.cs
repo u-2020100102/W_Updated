@@ -20,23 +20,28 @@ public partial class ProfilePage : ContentPage
     {
         loggedUser = await db.GetUserByID(userId);
         nameSurname.Text = loggedUser.Name;
-        identityNumber.Text = "Your Identity Number: "  + loggedUser.IdentityNumber.ToString();
+        identityNumber.Text = "Your Identity Number: " + loggedUser.IdentityNumber.ToString();
         role.Text = "Your role is " + loggedUser.Permission;
-        int count = 1;
 
-        foreach (char c in loggedUser.Children)
+
+        if (loggedUser.Permission == "Parent")
         {
-            var child = await db.GetUserByID(c - '0');
-            Button MyControl1 = new Button();
-            MyControl1.Text = child.Name;
-            MyControl1.Clicked += VisitChild_clicked;
+            addChild.IsVisible = true;
+            int count = 1;
+            foreach (char c in loggedUser.Children)
+            {
+                var child = await db.GetUserByID(c - '0');
+                Button MyControl1 = new Button();
+                MyControl1.Text = child.Name;
+                MyControl1.Clicked += VisitChild_clicked;
 
-            Grid.SetColumn(MyControl1, 0);
-            Grid.SetRow(MyControl1, count);
-            ChildrenGrid.Children.Add(MyControl1);
+                Grid.SetColumn(MyControl1, 0);
+                Grid.SetRow(MyControl1, count);
+                ChildrenGrid.Children.Add(MyControl1);
 
-            ChildrenGrid.SetValue(Grid.ColumnProperty, count);
-            count++;
+                ChildrenGrid.SetValue(Grid.ColumnProperty, count);
+                count++;
+            }
         }
     }
 
